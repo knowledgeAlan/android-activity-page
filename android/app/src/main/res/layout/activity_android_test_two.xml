@@ -6,4 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".AndroidTestTwo">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="246dp"
+        android:layout_height="136dp"
+        android:text="hello world"
+        android:textSize="50sp"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="341dp" />
+
+    <Button
+        android:id="@+id/buttonCall"
+        android:layout_width="168dp"
+        android:layout_height="95dp"
+        android:text="Call react native"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="527dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

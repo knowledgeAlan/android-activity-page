@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,AppRegistry } from 'react-native';
+import AppNavigator from './src/components/AppNavigator';
+import RNFirstPage from "./src/pages/RNFirstPage";
 
+AppRegistry.registerComponent('application', () => AppNavigator);
+AppRegistry.registerComponent("RNFirstPage", () => RNFirstPage);
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AppNavigator/>
   );
 }
 
