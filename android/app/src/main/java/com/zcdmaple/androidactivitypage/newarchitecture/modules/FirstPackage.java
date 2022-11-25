@@ -12,12 +12,14 @@ import java.util.Collections;
 import java.util.List;
 
 public class FirstPackage implements ReactPackage {
+
+    public FirstModule firstModule;
     @NonNull
     @Override
     public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactApplicationContext) {
         List<NativeModule> modules = new ArrayList<>();
-
-        modules.add(new FirstModule(reactApplicationContext));
+        firstModule = new FirstModule(reactApplicationContext);
+        modules.add(firstModule);
 
         return modules;
     }

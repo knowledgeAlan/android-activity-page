@@ -13,6 +13,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.config.ReactFeatureFlags;
 import com.facebook.soloader.SoLoader;
 import com.zcdmaple.androidactivitypage.newarchitecture.MainApplicationReactNativeHost;
+import com.zcdmaple.androidactivitypage.newarchitecture.modules.CameraPackage;
 import com.zcdmaple.androidactivitypage.newarchitecture.modules.FirstPackage;
 
 import expo.modules.ApplicationLifecycleDispatcher;
@@ -23,6 +24,8 @@ import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
 //  public static final ReactCommPackage reactCommPackage = new ReactCommPackage();
+  public static final FirstPackage firstPackage = new FirstPackage();
+
   private final ReactNativeHost mReactNativeHost = new ReactNativeHostWrapper(
     this,
     new ReactNativeHost(this) {
@@ -37,7 +40,8 @@ public class MainApplication extends Application implements ReactApplication {
       List<ReactPackage> packages = new PackageList(this).getPackages();
       // Packages that cannot be autolinked yet can be added manually here, for example:
       // packages.add(new MyReactNativePackage());
-      packages.add(new FirstPackage());
+      packages.add(firstPackage);
+      packages.add(new CameraPackage());
       return packages;
     }
 
@@ -105,5 +109,9 @@ public class MainApplication extends Application implements ReactApplication {
         e.printStackTrace();
       }
     }
+  }
+
+  public static FirstPackage GetFirstPackage(){
+    return firstPackage;
   }
 }

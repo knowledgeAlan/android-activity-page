@@ -1,7 +1,17 @@
 import * as React from 'react';
-import { View, Text,StyleSheet,Button,NativeModules} from 'react-native';
+import { View, Text,StyleSheet,Button,NativeModules,
+    NativeEventEmitter,} from 'react-native';
 
-const { FirstModule} = NativeModules;
+const { FirstModule,CustomCameraModule} = NativeModules;
+const firstModuleManagerEmitter = new NativeEventEmitter(FirstModule);
+const firstModuleSubscription = firstModuleManagerEmitter.addListener(
+
+    'EventAlipayCamera',
+  
+    (result) => console.log("firstModuleManagerEmitter ====",result)
+  
+  );
+  
 export default function RNFirstPage ({ navigation }){
 
     const secondPage = ()=>{
@@ -13,6 +23,13 @@ export default function RNFirstPage ({ navigation }){
         console.log("startActivity====");
         FirstModule.testNative();
     }
+
+    const startCameraActivity = ()=>{
+        console.log("startCameraActivity====");
+        CustomCameraModule.pickImage((res=>{
+            console.log("startCameraActivity response==",res);
+        }));
+    }
     return (  <View style={styles.container}>
         <Text style={styles.textFont}>Rn First</Text>
         <Button
@@ -23,6 +40,11 @@ export default function RNFirstPage ({ navigation }){
 <Button
         title="start activity me"
         onPress={startActivity}
+      />
+
+      <Button
+        title="start camera activity "
+        onPress={startCameraActivity}
       />
     </View>);
 }

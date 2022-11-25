@@ -1,2 +1,6 @@
-package com.zcdmaple.androidactivitypage.newarchitecture.modules;public class CaptureAct {
+package com.zcdmaple.androidactivitypage.newarchitecture.modules;
+
+import com.journeyapps.barcodescanner.CaptureActivity;
+
+public class CaptureAct extends CaptureActivity {
 }
